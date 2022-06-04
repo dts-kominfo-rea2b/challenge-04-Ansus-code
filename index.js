@@ -8,7 +8,24 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (arrDates, index) => {
+
+  //start convert ke string dan assign ke array baru;
+  const newDates = [];
+  for (let i = 0; i < arrDates.length; i++) {
+    const convertResult = (new Date(arrDates[i]).getTime() / 1000).toString();
+    newDates.push(convertResult);
+  };
+  
+  if (index === undefined) {          
+    newDates.sort((x, y) => x - y);
+    return newDates.join("-");
+  } else {                            
+    newDates.sort((x, y) => x + y);
+    return newDates[index];
+  }
+  //end cek index yang di assign ke parameter
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
